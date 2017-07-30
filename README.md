@@ -18,3 +18,6 @@ Application can be run locally by using:
 ### Models
  - Questions
 Contains wrappers to interact with Polls API with promises
+
+### App
+The application loads the questions and manages it in the state and pass properties to its components either a container for the list or a detail for a specific question.
