@@ -14,6 +14,18 @@ class App extends Component {
         this.state = {
             questions: true
         };
+        this.showDetail = this.showDetail.bind(this);
+    }
+
+    showDetail(questionId) {
+        console.log('questionId', questionId);
+        Questions.detail(questionId)
+            .then( question => {
+                this.setState({
+                    questions: false,
+                    question
+                });
+            }).catch( err => console.log(err));
     }
 
     render() {
@@ -21,7 +33,7 @@ class App extends Component {
         let {questions, question} = this.state;
 
         if (questions) {
-            component = <QuestionsContainer onLoadQuestions={Questions.all} />;
+            component = <QuestionsContainer onLoadQuestions={Questions.all} onShowDetail={this.showDetail} />;
         } else if (question) {            
             component = <QuestionDetail {...question} />;
         }

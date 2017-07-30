@@ -29,7 +29,7 @@ export class QuestionsContainer extends Component {
             return (
                 <QuestionOveview
                     {...question}
-                    key={question.id} />
+                    key={question.id} onShowDetail={this.props.onShowDetail} />
             );
         });
         return (
