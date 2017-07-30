@@ -1,0 +1,8 @@
+.questions-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.question-overview {
+	flex-grow: 1;
+}

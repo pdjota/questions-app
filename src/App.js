@@ -10,24 +10,16 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
-    }
-
-    componentDidMount() {
-        Questions.all().then( questions => {
-            this.setState({
-                questions
-            });
-        }).catch( err => {
-            console.log(err);
-        })
+        this.state = {
+            questions: true
+        };
     }
 
     render() {
         let component;
         let questions = this.state.questions;
         if (questions) {
-            component = <QuestionsContainer {...questions} />
+            component = <QuestionsContainer {...questions} onLoadQuestions={Questions.all} />
         }
 
         return (

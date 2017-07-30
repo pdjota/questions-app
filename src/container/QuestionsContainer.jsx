@@ -1,14 +1,42 @@
 import React, {Component} from 'react';
 
-import {Card, CardTitle, CardText} from 'material-ui/Card';
+import {Card, CardTitle} from 'material-ui/Card';
+
+import {QuestionOveview} from './QuestionOveview';
 
 export class QuestionsContainer extends Component {
-	render() {
-		return (
-			<Card>
-				<CardTitle title="Questions" />
-				<CardText>{this.props[0].question}</CardText>
-			</Card>
-		);
-	}	
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            questions: []
+        };
+    }
+
+    componentDidMount() {
+        this.props.onLoadQuestions().then( questions => {
+            this.setState({
+                questions
+            });
+        });
+    }
+
+    render() {
+        let questionsComponents;
+        questionsComponents = this.state.questions.map( question => {
+            return (
+                <QuestionOveview
+                    {...question}
+                    key={question.id} />
+            );
+        });
+        return (
+            <Card>
+                <CardTitle title="Questions" />
+                <div className="questions-container">
+                    {questionsComponents}
+                </div>
+            </Card>
+        );
+    }
 }
