@@ -18,6 +18,8 @@ export class QuestionsContainer extends Component {
             this.setState({
                 questions
             });
+        }).catch( err => {
+            console.log(err);
         });
     }
 

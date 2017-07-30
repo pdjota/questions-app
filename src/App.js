@@ -5,6 +5,7 @@ import AppBar from 'material-ui/AppBar';
 import {Questions} from './models/Questions';
 
 import {QuestionsContainer} from './container/QuestionsContainer';
+import {QuestionDetail} from './detail/QuestionDetail';
 
 class App extends Component {
 
@@ -17,9 +18,12 @@ class App extends Component {
 
     render() {
         let component;
-        let questions = this.state.questions;
+        let {questions, question} = this.state;
+
         if (questions) {
-            component = <QuestionsContainer {...questions} onLoadQuestions={Questions.all} />
+            component = <QuestionsContainer onLoadQuestions={Questions.all} />;
+        } else if (question) {            
+            component = <QuestionDetail {...question} />;
         }
 
         return (

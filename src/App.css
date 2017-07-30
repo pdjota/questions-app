@@ -6,3 +6,14 @@
 .question-overview {
 	flex-grow: 1;
 }
+
+.question-detail {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.question-actions {
+	display: flex;
+	flex-direction: row-reverse;
+}
