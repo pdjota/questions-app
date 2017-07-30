@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import AppBar from 'material-ui/AppBar';
+
+import {Questions} from './models/Questions';
 
 class App extends Component {
   render() {
